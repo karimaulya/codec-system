@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media_Core | Upload</title>
+    <title>ShrinkLab | Upload</title> 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="dark-theme">
     <div class="container">
-        <!-- Panel Utama: Media Tools Hub -->
         <div class="panel tools-hub">
             <header>
-                <h3>⚙️ MEDIA_CORE</h3>
+                <h3>ShrinkLab</h3>
             </header>
             
-            <!-- Form ini akan mengirim data ke app.py -->
+            <!-- Form untuk mengirim data ke app.py -->
             <form action="/proses" method="POST" enctype="multipart/form-data">
                 
-                <!-- Area Upload File -->
+                <!-- Upload File -->
                 <div class="upload-area">
                     <p>Initialize Pipeline</p>
                     <input type="file" name="file_input" required>
@@ -28,16 +27,21 @@
                     <h4>Core Modules</h4>
                     
                     <div class="module-group">
-                        <label>Pilih Algoritma:</label>
+                        <label>Pilih Mode Operasi:</label>
                         <select name="algoritma">
-                            <option value="kompresi_huffman">Standard Compression (Huffman)</option>
-                            <option value="stegano_lsb">Steganography (LSB)</option>
+                            <!-- Fitur Kompresi & Dekompresi -->
+                            <option value="kompresi">Compress (Mengecilkan File)</option>
+                            <option value="dekompresi">Decompress (Mengembalikan File)</option>
+                            
+                            <!-- Fitur Steganografi -->
+                            <option value="stegano_hide">Hide Message (Sisipkan Pesan)</option>
+                            <option value="stegano_reveal">Reveal Message (Ekstrak Pesan)</option>
                         </select>
                     </div>
 
-                    <!-- Input teks rahasia (muncul kalau milih Steganografi) -->
+                    <!-- Input teks rahasia (steganografi) -->
                     <div class="module-group">
-                        <label>Pesan Rahasia (Hanya untuk Stegano):</label>
+                        <label>Pesan Rahasia (Hanya untuk Hide Message):</label>
                         <input type="text" name="pesan_rahasia" placeholder="Ketik pesan di sini...">
                     </div>
                 </div>
