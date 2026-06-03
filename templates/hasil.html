@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media_Core | Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <!-- Panel Hasil: Process Results -->
+        <div class="panel process-results">
+            <header class="success-header">
+                <h3>✅ Processing Complete</h3>
+                <p>Operation finished with high efficiency</p>
+            </header>
+
+            <!-- Preview Data dari Backend -->
+            <div class="result-card">
+                <div class="file-info">
+                    <p><strong>Nama File:</strong> {{ nama_file }}</p>
+                </div>
+                
+                <!-- Jinja2 Flask akan mengisi angka ini dari app.py -->
+                <div class="stats">
+                    <div class="stat-box">
+                        <p>ORIGINAL</p>
+                        <h4>{{ ukuran_asli }} MB</h4>
+                    </div>
+                    <div class="stat-box optimized">
+                        <p>OPTIMIZED</p>
+                        <h4>{{ ukuran_baru }} MB</h4>
+                    </div>
+                </div>
+                
+                <div class="reduction-info">
+                    <p>Total Reduction: <strong>{{ persentase }}%</strong></p>
+                </div>
+
+                <!-- Tombol Download -->
+                <a href="{{ url_for('download_file', filename=nama_file) }}" class="btn-primary">
+                    ⬇️ Download File
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
