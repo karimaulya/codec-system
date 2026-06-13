@@ -14,8 +14,7 @@ __pycache__/
 *.pyd
 
 # ==========================================
-# 3. File Media User (SANGAT PENTING)
-# Mengabaikan isi folder agar file percobaan tidak ikut ke GitHub
+# 3. File Media User
 # ==========================================
 static/uploads/*
 static/outputs/*

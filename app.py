@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request, send_from_directory
 import os
-
-# Mengimpor mesin algoritma yang sudah kamu buat
 from algoritma.huffman import compress_file, decompress_file
 from algoritma.steganografi import embed_message, extract_message
 
@@ -48,7 +46,7 @@ def proses():
     ukuran_baru_mb = ukuran_asli_mb
     persentase = 0
     output_filename = input_filename
-    pesan_terungkap = None  # Khusus untuk fitur Reveal Steganografi
+    pesan_terungkap = None 
 
     try:
         # CABANG 1: KOMPRESI (HUFFMAN)
@@ -62,7 +60,6 @@ def proses():
 
         # CABANG 2: DEKOMPRESI (HUFFMAN)
         elif algoritma == 'dekompresi':
-            # Hilangkan akhiran .shrink kalau ada, misal: video.mp4.shrink -> video.mp4
             if input_filename.endswith('.shrink'):
                 output_filename = input_filename.replace('.shrink', '')
             else:
@@ -72,11 +69,9 @@ def proses():
             decompress_file(input_path, output_path)
             
             ukuran_baru_mb = round(os.path.getsize(output_path) / (1024 * 1024), 3)
-            # Karena ini dekompresi (membesar lagi), persentase tidak terlalu relevan (bisa diset 0)
 
         # CABANG 3: STEGANO - HIDE MESSAGE
         elif algoritma == 'stegano_hide':
-            # Hasil steganografi LSB wajib berformat .png agar tidak rusak
             nama_tanpa_ext = os.path.splitext(input_filename)[0]
             output_filename = nama_tanpa_ext + '_stego.png'
             output_path = os.path.join(app.config['OUTPUT_FOLDER'], output_filename)
@@ -86,9 +81,8 @@ def proses():
 
         # CABANG 4: STEGANO - REVEAL MESSAGE
         elif algoritma == 'stegano_reveal':
-            # Ini spesial, tidak menghasilkan file baru, tapi menghasilkan teks!
             pesan_terungkap = extract_message(input_path)
-            output_path = input_path # Menghindari error saat tombol download ditekan
+            output_path = input_path 
 
         # Lempar semua data ke halaman hasil.html
         return render_template(
@@ -101,7 +95,6 @@ def proses():
         )
 
     except Exception as e:
-        # Menangkap error kalau dosen iseng upload file aneh atau file corrupt
         return f"<h3>Terjadi Kesalahan!</h3><p>{str(e)}</p><a href='/'>Kembali</a>", 500
 
 # ==========================================
