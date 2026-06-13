@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShrinkLab | Hasil </title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>ShrinkLab | Hasil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <link rel="stylesheet" href="{{ url_for('static', filename='static/css/style.css') }}">
 </head>
 <body class="dark-theme">
     <div class="container">
@@ -20,7 +20,7 @@
                 <div class="file-info">
                     <p><strong>Nama File:</strong> {{ nama_file }}</p>
                 </div>
-                
+
                 <div class="stats">
                     <div class="stat-box">
                         <p>ORIGINAL</p>
@@ -31,9 +31,10 @@
                         <h4>{{ ukuran_baru }} MB</h4>
                     </div>
                 </div>
-                
+
                 <div class="reduction-info">
-                    <p>Total Reduction: <strong>{{ persentase }}%</strong></p>
+                    <p>Total Reduction</p>
+                    <strong>{{ persentase }}%</strong>
                 </div>
 
                 <!-- Tombol Download -->
@@ -41,7 +42,14 @@
                     Download File
                 </a>
             </div>
+
+            <!-- Tombol Kembali -->
+            <a href="{{ url_for('index') }}" class="btn-secondary">
+                Process Another File
+            </a>
         </div>
     </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShrinkLab | Upload</title> 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>ShrinkLab | Upload</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <link rel="stylesheet" href="{{ url_for('static', filename='static/css/style.css') }}">
 </head>
 <body class="dark-theme">
     <div class="container">
         <div class="panel tools-hub">
             <header>
                 <h3>ShrinkLab</h3>
+                <p>Compression &amp; Steganography Toolkit</p>
             </header>
-            
+
             <!-- Form untuk mengirim data ke app.py -->
             <form action="/proses" method="POST" enctype="multipart/form-data">
-                
+
                 <!-- Upload File -->
                 <div class="upload-area">
                     <p>Initialize Pipeline</p>
@@ -25,14 +26,14 @@
                 <!-- Pilihan Modul -->
                 <div class="modules">
                     <h4>Core Modules</h4>
-                    
+
                     <div class="module-group">
-                        <label>Pilih Mode Operasi:</label>
+                        <label>Pilih Mode Operasi</label>
                         <select name="algoritma">
                             <!-- Fitur Kompresi & Dekompresi -->
                             <option value="kompresi">Compress (Mengecilkan File)</option>
                             <option value="dekompresi">Decompress (Mengembalikan File)</option>
-                            
+
                             <!-- Fitur Steganografi -->
                             <option value="stegano_hide">Hide Message (Sisipkan Pesan)</option>
                             <option value="stegano_reveal">Reveal Message (Ekstrak Pesan)</option>
@@ -40,8 +41,8 @@
                     </div>
 
                     <!-- Input teks rahasia (steganografi) -->
-                    <div class="module-group">
-                        <label>Pesan Rahasia (Hanya untuk Hide Message):</label>
+                    <div class="module-group secret-message">
+                        <label>Pesan Rahasia (Hanya untuk Hide Message)</label>
                         <input type="text" name="pesan_rahasia" placeholder="Ketik pesan di sini...">
                     </div>
                 </div>
@@ -51,5 +52,7 @@
             </form>
         </div>
     </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
