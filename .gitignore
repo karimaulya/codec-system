@@ -1,0 +1,33 @@
+# ==========================================
+# 1. Virtual Environment & Dependencies
+# ==========================================
+env/
+venv/
+.env
+
+# ==========================================
+# 2. Python Cache (File sampah sistem Python)
+# ==========================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ==========================================
+# 3. File Media User (SANGAT PENTING)
+# Mengabaikan isi folder agar file percobaan tidak ikut ke GitHub
+# ==========================================
+static/uploads/*
+static/outputs/*
+
+# Pengecualian: Tetap pertahankan foldernya di GitHub walaupun kosong
+!static/uploads/.gitkeep
+!static/outputs/.gitkeep
+
+# ==========================================
+# 4. OS & Editor Files (Mencegah nyampah)
+# ==========================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShrinkLab | Hasil</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <link rel="stylesheet" href="{{ url_for('static', filename='static/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
 </head>
 <body class="dark-theme">
     <div class="container">
@@ -36,7 +36,14 @@
                     <p>Total Reduction</p>
                     <strong>{{ persentase }}%</strong>
                 </div>
-
+                {% if pesan_terungkap %}
+                    <div class="stegano-box" style="margin-top: 15px; margin-bottom: 15px;">
+                        <h3>🕵️ Pesan Rahasia Ditemukan!</h3>
+                    <div class="message">
+                        {{ pesan_terungkap }}
+                    </div>
+                </div>
+                {% endif %}
                 <!-- Tombol Download -->
                 <a href="{{ url_for('download_file', filename=nama_file) }}" class="btn-primary">
                     Download File
