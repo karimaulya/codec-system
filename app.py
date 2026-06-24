@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, render_template, request, send_from_directory  
 import os
 from algoritma.huffman import compress_file, decompress_file
 from algoritma.steganografi import embed_message, extract_message
